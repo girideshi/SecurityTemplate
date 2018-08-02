@@ -4,3 +4,10 @@
         padding-top: 50px;
     }
 }
+h2{
+font-size: 2em;
+color: #4d555a;
+text-align: center;
+font-weight: bold;
+text-transform: uppercase;
+}
