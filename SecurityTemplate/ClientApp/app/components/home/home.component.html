@@ -1,4 +1,4 @@
-<div [formGroup]="loginForm" (ngForm)="onSubmit" class="">
+<div  class="">
     <div class="body-content col-sm">
         <h1>Online Claim Filing</h1>
         <p> To recover as a Class Member based on your claims in the action entitled In re Virtus Investment Partners, Inc. Securities Litigation Case No. 15-cv-1249 (WHP) (S.D.N.Y.) (the “Action”), YOU MUST MAIL OR SUBMIT ONLINE A COMPLETED CLAIM FORM, ACCOMPANIED BY COPIES OF THE DOCUMENTS REQUESTED HEREIN, ON OR BEFORE OCTOBER 10, 2018.</p>
@@ -7,16 +7,16 @@
 
         <p>If you are a Class Member and you did not validly request exclusion in connection with the previously mailed Notice of Pendency of Class Action, you will be bound by the terms of any judgment entered in the Action, including the releases provided therein, WHETHER OR NOT YOU SUBMIT A CLAIM FORM AND WHETHER OR NOT YOUR CLAIM IS ALLOWED IN WHOLE OR IN PART.</p>
 
-        <p>Garden City Group, LLC ("CFG") has been retained by Class Counsel and appointed by the court to administer the settlement reached in the Action, which consists of collecting identification and claims information, processing the claims to determine eligibility, and distributing the settlement proceeds to claimants. GCG’s collection and processing of personal information is legally authorized, done so with consent, and is in the legitimate interest of the court, the parties and the claimants.</p>
+        <p>Golden Fort Group, LLC ("CFG") has been retained by Class Counsel and appointed by the court to administer the settlement reached in the Action, which consists of collecting identification and claims information, processing the claims to determine eligibility, and distributing the settlement proceeds to claimants. GCG’s collection and processing of personal information is legally authorized, done so with consent, and is in the legitimate interest of the court, the parties and the claimants.</p>
 
-        <p>In connection with the processing and administration of your claim, GCG will collect, use and disclose your personal information in accordance with its Privacy Notice. We may share your personal information with the court, Class Counsel, our parent and/or affiliated companies, and our third-party service providers located in Canada, the United States and other jurisdictions, as required to administer the settlement. The governments, courts or law enforcement or regulatory agencies of these jurisdictions may be able to obtain disclosure of your personal information in accordance with local laws. Your personal information, however, will not be provided to third parties for marketing or advertising purposes. For more information about how your personal information is treated, please review the Privacy Notice.</p>
+        <p>In connection with the processing and administration of your claim, GFG will collect, use and disclose your personal information in accordance with its Privacy Notice. We may share your personal information with the court, Class Counsel, our parent and/or affiliated companies, and our third-party service providers located in Canada, the United States and other jurisdictions, as required to administer the settlement. The governments, courts or law enforcement or regulatory agencies of these jurisdictions may be able to obtain disclosure of your personal information in accordance with local laws. Your personal information, however, will not be provided to third parties for marketing or advertising purposes. For more information about how your personal information is treated, please review the Privacy Notice.</p>
     </div>
-    <div  >
+    <div class="form-horizontal" [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()">
         <div class="form-group" >
             <b><span class="col-sm-4 control-label">Claim Number:</span></b>
             <div class="col-sm-4">
-                <input type="text" class="form-control" formControlName="claimNumber" id="txtClaimNumber" />
-                <div *ngIf="loginForm.errors?.claimNumberMissing">
+                <input type="text" class="form-control" formControlName="claimNumber" required id="txtClaimNumber" />
+                <div *ngIf="loginForm.controls.claimNumber.invalid && loginForm.controls.claimNumber.touched" class="text-danger">
                     <span>Please provide Claimant Number</span>
                 </div>
             </div>
@@ -27,8 +27,8 @@
         <div class="form-group">
             <b> <span class="control-label col-sm-4" >Control Number: </span> </b>
             <div class="col-sm-4">
-                <input class="form-control" formControlName="controlNumber" type="text" id="txtControlNumber" />
-                <div *ngIf="loginForm.errors?.ctrlNumMissing">
+                <input class="form-control" formControlName="controlNumber" type="text" required id="txtControlNumber" />
+                <div *ngIf="loginForm.controls.controlNumber.invalid && loginForm.controls.controlNumber.touched" class="text-danger">
                     <span>Please provide control Number</span>
                 </div>
             </div>
@@ -37,8 +37,8 @@
             </div>
         </div>
         <div class="form-group">
-            <div class="col-sm-12" style="text-align:center">
-                <input type="submit" [disabled]="!loginForm.valid" value="Login" id="btnLogin" />
+            <div class="col-sm-2 col-sm-offset-5">
+                <input type="submit" (click)="loginSubmission()" [disabled]="!loginForm.valid" [ngClass]="loginForm.valid ? 'btn-primary': 'btn-default'" class="form-control btn btn-block"  value="Login" id="btnLogin" />
             </div>
         </div>
     </div>

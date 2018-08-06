@@ -1,0 +1,19 @@
+﻿h1 {
+    margin-bottom:15px;
+    text-align: center
+}
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    
+    margin-bottom: 80px;
+}
+
+.controlSpacing {
+    margin-bottom: 20px;
+}

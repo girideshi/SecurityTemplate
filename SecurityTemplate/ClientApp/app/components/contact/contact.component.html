@@ -1,0 +1,126 @@
+<div class="" [formGroup]="contactForm" (ngSubmit)="contactFormSubmit()">
+    <h1>Part I - Claimant Identification</h1>
+    <div class="form-group controlSpacing">
+        <span class="text-danger">*</span> <span class="control-label"><b> Beneficial Owner's Name:</b></span>
+
+        <input type="text" class="form-control col-sm-8" formControlName="beneficialowner" id="txtbeneficialowner" />
+        <div *ngIf="contactForm.controls.beneficialowner.invalid && hasSubmitted">
+            <span class="text-danger">Please enter Beneficial Owner's Name</span>
+        </div>
+
+    </div>
+    <div class="form-group controlSpacing">
+        <span class="text-danger">*</span> <span class="control-label"><b> Joint Beneficial Owner's Name:</b></span>
+
+        <input type="text" class="form-control col-sm-8" formControlName="jointBeneficialOwner" id="txtjointBeneficialOwner" />
+        <div *ngIf="contactForm.controls.jointBeneficialOwner.invalid &&  hasSubmitted">
+            <span class="text-danger">Joint Beneficial Owner's Name</span>
+        </div>
+
+    </div>
+    <div class="form-group controlSpacing">
+        <span class="text-danger">*</span> <span class="control-label"><b> Country:</b></span>
+
+        <select class="form-control col-sm-8" formControlName="country" id="ddlcountry">
+            <option label="---SELECT COUNTRY---" value="---" selected="selected"></option>
+            <option label="UNITED STATES OF AMERICA" value="US"></option>
+            <option label="INDIA" value="IN"></option>
+            <option label="ENGLAND" value="EN"></option>
+            <option label="ITALY" value="IT"></option>
+        </select>
+        <div *ngIf="contactForm.controls.country.value=='---' &&  hasSubmitted">
+            <span class="text-danger">Please select country</span>
+        </div>
+
+    </div>
+    <div class="form-group">
+        <span class="text-danger">*</span> <span class="control-label"><b> Street Address:</b></span>
+
+        <input type="text" class="form-control col-sm-8" formControlName="streetAddress1" id="txtstreetAddress1" />
+        <div *ngIf="contactForm.controls.streetAddress1.invalid && hasSubmitted">
+            <span class="text-danger">Please enter Street Address1</span>
+        </div>
+        <input type="text" class="form-control col-sm-8" formControlName="streetAddress2" id="txtstreetAddress2" />
+
+    </div>
+    <div class="form-group">
+        <span class="text-danger">*</span> <span class="control-label"><b> City:</b></span>
+
+        <input type="text" class="form-control col-sm-8" formControlName="city" id="txtcity" />
+        <div *ngIf="contactForm.controls.city.invalid && hasSubmitted">
+            <span class="text-danger">Please enter city</span>
+        </div>
+
+    </div>
+    <div class="form-group">
+        <span class="text-danger">*</span> <span class="control-label"><b>State:</b></span>
+
+        <select class="form-control col-sm-8" formControlName="state" id="ddlstate">
+            <option value="---" label="---SELECT STATE---" selected="selected"></option>
+            <option value="AZ" label="ARIZONA">ARIZONA</option>
+            <option value="ST" label="SEATLE">SEATLE</option>
+            <option value="WA" label="WASHINGTON">WASHINGTON</option>
+            <option value="CA" label="CALIFORNIA">CALIFORNIA</option>
+        </select>
+        <div *ngIf="contactForm.controls.state.value=='---' && hasSubmitted">
+            <span class="text-danger">Please select state</span>
+        </div>
+    </div>
+    <div class="form-group">
+        <span class="control-label"><b>Zipcode:</b></span>
+
+        <input type="text" class="form-control col-sm-8" formControlName="zipcode" id="txtzipcode" />
+        <div *ngIf="contactForm.controls.zipcode.invalid && hasSubmitted">
+            <span class="text-danger">Please Enter Zipcode</span>
+        </div>
+    </div>
+    <div class="form-group">
+        <span class="control-label"><b>Last Four Digits of the Beneficial Owner's Employer Identification Number or SSN:</b></span>
+
+        <input type="text" class="form-control col-sm-8" formControlName="ssnNumber" id="txtssnNumber" />
+        <div *ngIf="contactForm.controls.ssnNumber.invalid && hasSubmitted">
+            <span class="text-danger">Please Enter SSN</span>
+        </div>
+    </div>
+    <div class="form-group">
+        <span class="control-label"><b> Record Owner's Name:</b></span>
+
+        <input type="text" class="form-control col-sm-8" formControlName="recordOwner" id="txtrecordOwner" />
+
+    </div>
+    <div class="form-group">
+        <span class="control-label"><b> Account Number:</b></span>
+
+        <input type="text" class="form-control col-sm-8" formControlName="accountNumber" id="txtaccountNumber" />
+
+    </div>
+    <div class="form-group">
+        <span class="control-label"><b> Work Phone Number:</b></span>
+
+        <input type="text" class="form-control col-sm-8" formControlName="workPhone" placeholder="+1 (123) 456-7890" id="txtworkPhone" />
+        <div *ngIf="contactForm.controls.workPhone.invalid && hasSubmitted">
+            <span class="text-danger">Please Enter Telephone</span>
+        </div>
+    </div>
+    <div class="form-group">
+        <span class="text-danger">*</span> <span class="control-label"><b> Email Address:</b></span>
+
+        <input type="text" class="form-control col-sm-8" formControlName="email" id="txtemail" />
+        <div *ngIf="contactForm.controls.email.invalid && hasSubmitted">
+            <span class="text-danger">Please Enter Email Address</span>
+        </div>
+    </div>
+    <div class="form-group">
+        <span class="text-danger">*</span> <span class="control-label"><b> Confirm Email Address:</b></span>
+
+        <input type="text" class="form-control col-sm-8" formControlName="confirmEmail" id="txtconfirmEmail" />
+        <div *ngIf="contactForm.controls.confirmEmail.invalid && hasSubmitted">
+            <span class="text-danger">Please Confirm Email</span>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-3 col-sm-offset-5">
+            <input type="submit" class="btn btn-primary" id="btnSubmit" (click)="contactSubmit()" title="Save" />
+        </div>
+    </div>
+</div>
